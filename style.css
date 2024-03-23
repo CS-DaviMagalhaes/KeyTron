@@ -1,0 +1,54 @@
+body {
+    background-color: black;
+    font-family: 'Fira Sans', sans-serif;
+    display: grid;
+    grid-template-rows: 50vh 50vh;
+    margin: 0;
+
+}
+.keyboard-map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.text-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+h1{
+    color: white;
+    font-size: 8vh;
+}
+.keyboard-map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1.2vh;       
+}
+.keyboard-btns,
+.spacebar-key {
+    font-size: 6vh;
+    min-width: 10vh;
+    min-height: 10vh;
+    border: 2.5px solid white; 
+    color: white; 
+    background: transparent;
+    border-radius: 3vh;
+    margin: 5px;
+    transition: background-color 0.1s ease;
+}
+
+.spacebar-key {
+    min-width: 50vh; /*override width property*/
+}
+
+/*hovering animation*/
+
+.keyboard-btns.pressed,
+.spacebar-key.pressed{
+    background-color: rgba(255, 255, 255, 0.5); /* Change background-color on hover */
+}   
