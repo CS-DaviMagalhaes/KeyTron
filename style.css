@@ -14,13 +14,26 @@ body {
 }
 .text-box{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     margin-bottom: 2vh;
 }
-h1{
+.shown-text{
+    color: rgba(255, 255, 255, 0.481);
+    font-size: 5vh;
+}
+.typed-text{
     color: white;
-    font-size: 8vh;
+    font-size: 5vh;
+}
+.correct{
+    color: green;
+}
+.incorrect{
+    color: red;
+}
+.incorrect-space{
+    background-color: red;
 }
 .keyboard-map{
     display: flex;
@@ -29,8 +42,7 @@ h1{
     flex-direction: column;
     row-gap: 1.2vh;       
 }
-.keyboard-btns,
-.spacebar-key {
+.keyboard-btns{
     font-size: 6vh;
     min-width: 10vh;
     min-height: 10vh;
@@ -41,14 +53,12 @@ h1{
     margin: 5px;
     transition: background-color 0.1s ease;
 }
-
-.spacebar-key {
-    min-width: 50vh; /*override width property*/
+.spacebar{
+    min-width: 50vh;
 }
 
-/*hovering animation*/
 
-.keyboard-btns.pressed,
-.spacebar-key.pressed{
+/*pressing animation*/
+.keyboard-btns.pressed{
     background-color: rgba(255, 255, 255, 0.5); /* Change background-color on hover */
 }   
