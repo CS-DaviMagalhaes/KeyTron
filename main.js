@@ -30,17 +30,30 @@ keyLayout.forEach((key, i) => {
     } 
 });
 
-// ---------- Quote rendering ------------ //
+// ---------- Quote rendering, test generation ------------ //
+import { words } from "./words.js"; 
+let random_test = "";
 const shownTextContainer = document.querySelector(".shown-text"); 
-const quote = "the fitness graham pacer test"
 
-// Split text into individual letters and create a span for each letter
-quote.split("").forEach(char => {
-    const charSpan = document.createElement("span");
-    charSpan.innerText = char;
-    shownTextContainer.appendChild(charSpan); 
-});
-// ---------- --------------- ---------- //
+function generateNewTest() {
+    random_test = ""; //reset variable
+
+    for (let i = 0; i < 18; i++) {
+        random_test += words[Math.floor(Math.random() * words.length)];
+        random_test += " ";
+    }
+    random_test = random_test.slice(0, -1); // Remove the last space
+    
+    shownTextContainer.innerHTML = "";
+
+    random_test.split("").forEach(char => {
+        const charSpan = document.createElement("span");
+        charSpan.innerText = char;
+        shownTextContainer.appendChild(charSpan); 
+    });
+}
+generateNewTest();
+// ---------- --------------- ----------  ----------------//
 
 let index = 0
 document.addEventListener("keydown", function(event) {
@@ -60,12 +73,18 @@ document.addEventListener("keydown", function(event) {
         array[index].classList.add("incorrect")   
         index++
         // handle incorrect spacebar (make it red)
+        console.log(key)
+        console.log(array[index].textContent)
         if (key !== " " && array[index].textContent === " "){
             array[index].classList.add("incorrect-space")
         }  
     }
+    // Check if the user has typed all the letters on the screen to generate new test
+    if (index === random_test.length) {
+        generateNewTest(); 
+        index = 0; 
+    }
 });
-//typedText.textContent += (key === " ") ? " " : key;
 
 function animate_buttons(key){
     const button = document.querySelector(`.keyboard-btns[data-key="${key}"]`);

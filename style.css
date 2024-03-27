@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #0f0f0f;
     font-family: 'Fira Sans', sans-serif;
     display: grid;
     grid-template-rows: 50vh 50vh;
@@ -14,26 +14,26 @@ body {
 }
 .text-box{
     display: flex;
-    justify-content: left;
-    align-items: left;
-    margin-bottom: 2vh;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh 30vh 2vh 30vh; /*top right bottom left*/
 }
 .shown-text{
-    color: rgba(255, 255, 255, 0.481);
+    color: #4c4c4c;
     font-size: 5vh;
 }
 .typed-text{
-    color: white;
+    color: #e7e7e7;
     font-size: 5vh;
 }
 .correct{
-    color: green;
+    color: #e7e7e7;
 }
 .incorrect{
-    color: red;
+    color: #ac8c8c;
 }
 .incorrect-space{
-    background-color: red;
+    background-color: #ac8c8c;
 }
 .keyboard-map{
     display: flex;
@@ -46,8 +46,8 @@ body {
     font-size: 6vh;
     min-width: 10vh;
     min-height: 10vh;
-    border: 2.5px solid white; 
-    color: white; 
+    border: 2.5px solid #e7e7e7; 
+    color: #e7e7e7; 
     background: transparent;
     border-radius: 3vh;
     margin: 5px;
