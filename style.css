@@ -2,7 +2,6 @@ body {
     background-color: #0f0f0f;
     font-family: 'Fira Sans', sans-serif;
     display: grid;
-    grid-template-rows: 50vh 50vh;
     margin: 0;
 
 }
@@ -11,6 +10,11 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 5vh;
+}
+.top{
+    display: flex;
+    padding-left: 5vh;
+    padding-right: 5vh;
 }
 .text-box{
     display: flex;
@@ -26,6 +30,7 @@ body {
     color: #e7e7e7;
     font-size: 5vh;
 }
+
 .correct{
     color: #e7e7e7;
 }

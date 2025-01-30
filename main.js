@@ -35,8 +35,15 @@ import { words } from "./words.js";
 let random_test = "";
 const shownTextContainer = document.querySelector(".shown-text"); 
 
+let intervalId = null;
 function generateNewTest() {
     random_test = ""; //reset variable
+
+    if (intervalId) { // Clear timer interval
+        clearInterval(intervalId);
+        intervalId = null;
+        document.getElementById("timer").innerHTML = "0";
+    }
 
     for (let i = 0; i < 18; i++) {
         random_test += words[Math.floor(Math.random() * words.length)];
@@ -60,6 +67,13 @@ document.addEventListener("keydown", function(event) {
     const key = event.key; 
     animate_buttons(key)
     const array = shownTextContainer.querySelectorAll("span") //array of all spans inside the .shown-text class
+
+    // Activate timer to count time
+    
+    if (index === 1) { // start timer when first key is pressed
+        startTimer();
+    }
+
     if (key === "Backspace") { //backspace is not a visible key
         if (index>0){index--}
         array[index].classList.remove("correct")
@@ -94,4 +108,15 @@ function animate_buttons(key){
             button.classList.remove("pressed");
         }, 100);
     }
+}
+
+
+function startTimer() {
+    let seconds = 0;
+    const timer = document.getElementById("timer"); 
+    intervalId = setInterval(() => {
+        seconds++;
+        console.log(seconds)
+        timer.innerHTML = seconds.toString()
+    }, 1000); // 1 second interval
 }
